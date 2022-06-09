@@ -1,0 +1,209 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Enterprise;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.text.SimpleDateFormat;
+import java.util.Date;  
+import java.util.Locale;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+/**
+ *
+ * @author Alex
+ */
+/**
+ * Esta clase contiene una mezcla de atributos de suscripcion y software
+ * 
+ * 
+ */
+public class Suscripcion extends javax.swing.JPanel {
+
+    /**
+     * Creates new form Suscripcion
+     */
+    //setScale(state,new ImageIcon(getClass().getResource("/Imagenes/check.png")),50,50);
+      
+    //  setScale(imageLabel,new ImageIcon(getClass().getResource("/Imagenes/desconocido.png")),150,150);
+   
+    public Suscripcion() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy", new Locale("es_ES")); 
+        initComponents();
+        software.setText("desconocido");
+        setScale(state,new ImageIcon(getClass().getResource("/Imagenes/multiply.png")),25,25);
+        this.setBackground(Color.decode("0x0f4c75"));
+        setScale(imageLabel,new ImageIcon(getClass().getResource("/Imagenes/desconocido.png")),150,150);
+        value.setText(value.getText()+"0");
+        Date date = new Date();  
+        fecha_End.setText(fecha_End.getText()+formatter.format(date));
+        fecha_cobro.setText(fecha_cobro.getText()+formatter.format(date));
+        
+    }
+    /**
+    * @param name nombre del software
+     * @param f1 fecha de cobro.
+     * @param f2 fecha de termino.
+     * @param _value valor de la suscripcion.
+     * @param _state estado de la suscripcion.
+     */
+    public Suscripcion(String name,Date f1,Date f2,int _value,boolean _state) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy", new Locale("es_ES")); 
+        initComponents();
+        software.setText(name);
+        setScale(imageLabel,new ImageIcon(getClass().getResource("/Imagenes/desconocido.png")),150,150);
+        fecha_End.setText(fecha_End.getText()+formatter.format(f1));
+        fecha_cobro.setText(fecha_cobro.getText()+formatter.format(f2));
+        value.setText(value.getText()+_value);
+        if(_state){
+            setScale(state,new ImageIcon(getClass().getResource("/Imagenes/check.png")),25,25);
+      
+        }
+        else {setScale(state,new ImageIcon(getClass().getResource("/Imagenes/multiply.png")),25,25);
+        this.setBackground(Color.decode("0x0f4c75"));
+        }
+        
+    }
+    /**
+    * @param name nombre del software
+     * @param f1 fecha de cobro.
+     * @param f2 fecha de termino.
+     * @param _value valor de la suscripcion.
+     * @param icon icono del software.
+     */
+    public Suscripcion(String name,Date f1,Date f2,int _value,ImageIcon icon) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy", new Locale("es_ES")); 
+        
+        initComponents();
+        software.setText(name);
+        fecha_End.setText(fecha_End.getText()+formatter.format(f1));
+        fecha_cobro.setText(fecha_cobro.getText()+formatter.format(f2));
+        value.setText(value.getText()+_value);
+        setScale(state,new ImageIcon(getClass().getResource("/Imagenes/multiply.png")),25,25);
+        this.setBackground(Color.decode("0x0f4c75"));
+        setScale(imageLabel,icon,150,150);
+        
+    }
+    /**
+    * @param name nombre del software
+     * @param f1 fecha de cobro.
+     * @param f2 fecha de termino.
+     * @param _value valor de la suscripcion.
+     * @param icon icono del software.
+     * @param _state estado de la suscripcion.
+     */
+    public Suscripcion(String name,Date f1,Date f2,int _value,ImageIcon icon,boolean _state) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy", new Locale("es_ES")); 
+        
+        initComponents();
+        software.setText(name);
+        fecha_End.setText(fecha_End.getText()+formatter.format(f1));
+        fecha_cobro.setText(fecha_cobro.getText()+formatter.format(f2));
+        value.setText(value.getText()+_value);
+        setScale(imageLabel,icon,150,150);
+        if(_state){
+            setScale(state,new ImageIcon(getClass().getResource("/Imagenes/check.png")),25,25);
+      
+        }
+        else {setScale(state,new ImageIcon(getClass().getResource("/Imagenes/multiply.png")),25,25);
+        this.setBackground(Color.decode("0x0f4c75"));
+        }
+        }
+    private void setScale(JLabel label,ImageIcon icon,int x,int y){
+        Image image=icon.getImage();
+        Image newimg= image.getScaledInstance(x,y, Image.SCALE_SMOOTH);
+        ImageIcon icon1=new ImageIcon(newimg);
+        label.setIcon(icon1);
+    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        software = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
+        state = new javax.swing.JLabel();
+        value = new javax.swing.JLabel();
+        fecha_cobro = new javax.swing.JLabel();
+        fecha_End = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(188, 111, 241));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(27, 38, 44), 1, true));
+        setPreferredSize(new java.awt.Dimension(500, 250));
+
+        software.setFont(new java.awt.Font("Bangers", 0, 24)); // NOI18N
+        software.setForeground(new java.awt.Color(82, 5, 123));
+        software.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        software.setText("Nombre");
+
+        imageLabel.setText(" ");
+
+        value.setFont(new java.awt.Font("Bangers", 0, 18)); // NOI18N
+        value.setForeground(new java.awt.Color(137, 44, 220));
+        value.setText("Valor:");
+
+        fecha_cobro.setFont(new java.awt.Font("Bangers", 0, 18)); // NOI18N
+        fecha_cobro.setForeground(new java.awt.Color(137, 44, 220));
+        fecha_cobro.setText("Fecha:");
+
+        fecha_End.setFont(new java.awt.Font("Bangers", 0, 18)); // NOI18N
+        fecha_End.setForeground(new java.awt.Color(137, 44, 220));
+        fecha_End.setText("Fecha:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(software, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fecha_cobro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(value, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha_End, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(value, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(fecha_cobro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fecha_End, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(software, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fecha_End;
+    private javax.swing.JLabel fecha_cobro;
+    private javax.swing.JLabel imageLabel;
+    private javax.swing.JLabel software;
+    private javax.swing.JLabel state;
+    private javax.swing.JLabel value;
+    // End of variables declaration//GEN-END:variables
+}
